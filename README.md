@@ -1,73 +1,82 @@
-# React + TypeScript + Vite
+# Web LAB-1 - Hello Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Hakkında
 
-Currently, two official plugins are available:
+Bu proje, **Web Tasarımı ve Programlama** dersi **LAB-1** kapsamında
+Vite + React + TypeScript kullanılarak oluşturulmuş bir başlangıç uygulamasıdır.
+Amaç, modern web geliştirme ortamını (Node.js, npm, Vite, React, TypeScript ve Git)
+doğru şekilde kurmak ve kişisel bilgilerle özelleştirilmiş bir arayüz hazırlamaktır.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Geliştirici
 
-## React Compiler
+- **Ad Soyad:** Şerif Bayram
+- **Öğrenci No:** 225541018
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Kullanılan Teknolojiler
 
-## Expanding the ESLint configuration
+- React 18
+- TypeScript
+- Vite
+- Node.js & npm
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Kurulum
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Proje klasörüne geç:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd web-lab-hello
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Çalıştırma
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Geliştirme sunucusunu başlat:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
+```
+
+Ardından tarayıcıda şu adresi aç:
+
+```text
+http://localhost:5173
+```
+
+## Build Alma
+
+Prodüksiyon için derleme alın:
+
+```bash
+npm run build
+```
+
+İsteğe bağlı olarak local bir önizleme için:
+
+```bash
+npm run preview
+```
+
+## Git Akışı (Özet)
+
+- Ana branch: `main`
+- Özellik branch'i: `feature/personalize-ui`
+- En az 3 anlamlı commit önerilir:
+  - `chore: initial Vite React+TS setup`
+  - `feat: personalize LAB-1 UI for Serif Bayram`
+  - `docs: add comprehensive LAB-1 README`
+
+Projeyi GitHub’a yüklerken:
+
+```bash
+git remote add origin <senin-repo-urlin>
+git push -u origin main
+git push -u origin feature/personalize-ui
+```
+
+## Ekran Görüntüsü
+
+LAB-1 arayüzünün ekran görüntüsünü alıp bu README içine ekleyebilirsin:
+
+```markdown
+![LAB-1 arayüzü ekran görüntüsü](./screenshot.png)
 ```
