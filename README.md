@@ -78,5 +78,7 @@ git push -u origin feature/personalize-ui
 LAB-1 arayüzünün ekran görüntüsünü alıp bu README içine ekleyebilirsin:
 
 ```markdown
-![LAB-1 arayüzü ekran görüntüsü](./screenshot.png)
+![LAB-1 arayüzü ekran görüntüsü](
+<img width="1273" height="705" alt="Ekran Resmi 2026-03-03 23 48 01" src="https://github.com/user-attachments/assets/7361c799-eb7d-42a2-9770-f77df0cdcb26" />
+)
 ```
