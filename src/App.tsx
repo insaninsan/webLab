@@ -80,16 +80,29 @@ function App() {
                   Aşağıdaki projeler, HTML/CSS temelleri ve modern araçlarla yaptığım
                   çalışmaları temsil eder.
                 </p>
-                <ul className="info-list">
-                  <li>
-                    <strong>Web LAB-1 - Hello Project:</strong> Vite ile oluşturulmuş, React
-                    + TypeScript tabanlı başlangıç projesi.
-                  </li>
-                  <li>
-                    <strong>LAB-2 Semantik Portföy:</strong> Bu sayfa; semantik HTML5,
-                    erişilebilirlik ve form doğrulama örneklerini içeriyor.
-                  </li>
-                </ul>
+                <div className="project-grid" role="list">
+                  <article className="project-card" role="listitem">
+                    <h3>Web LAB-1 - Hello Project</h3>
+                    <p>
+                      Vite ile oluşturulmuş, React + TypeScript tabanlı başlangıç projesi.
+                      Geliştirme ortamı kurulumu ve temel Git iş akışı üzerine odaklanır.
+                    </p>
+                  </article>
+                  <article className="project-card" role="listitem">
+                    <h3>LAB-2 Semantik Portföy</h3>
+                    <p>
+                      Semantik HTML5 iskeleti, erişilebilir form bileşenleri ve heading
+                      hiyerarşisi ile hazırlanmış kişisel portföy sayfası.
+                    </p>
+                  </article>
+                  <article className="project-card" role="listitem">
+                    <h3>LAB-3 Responsive Tasarım</h3>
+                    <p>
+                      Mobile-first yaklaşımı, 3 breakpoint ve modern CSS layout (Flexbox &amp;
+                      Grid) kullanılarak responsive hale getirilmiş bu portföy düzeni.
+                    </p>
+                  </article>
+                </div>
               </section>
             </section>
 
