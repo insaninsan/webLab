@@ -78,3 +78,30 @@ button:focus-visible {
   outline-offset: 3px;
 }
 
+/* Skip link for keyboard users */
+.skip-link {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 12px;
+  padding: 0.6em 1.2em;
+  border-radius: 999px;
+  background: #111827;
+  color: #f9fafb;
+  font-size: 0.85rem;
+  text-decoration: none;
+  border: 2px solid #fbbf24;
+  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.6);
+  z-index: 50;
+}
+
+.skip-link:not(:focus) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 1px;
+}
+
+
