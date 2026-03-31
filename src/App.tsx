@@ -1,258 +1,184 @@
-import './App.css'
+import { useState } from 'react'
+import Alert from './components/Alert'
+import Button from './components/Button'
+import Card from './components/Card'
+import Input from './components/Input'
+import UIKit from './pages/UIKit'
 
 function App() {
+  const [showAlert, setShowAlert] = useState(true)
+  const currentYear = new Date().getFullYear()
+
+  const toggleTheme = () => {
+    document.documentElement.classList.toggle('dark')
+  }
+
   return (
-    <>
-      <a href="#main-content" className="skip-link">
-        Ana içeriğe atla
+    <div className="min-h-screen bg-surface text-gray-900 transition-colors dark:bg-gray-950 dark:text-gray-100">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-0 focus:top-0 focus:z-50 bg-primary p-2 text-white"
+      >
+        Ana icerige atla
       </a>
 
-      <div className="app-shell">
-        <div className="layout">
-          <header className="site-header">
-            <div className="brand">
-              <span className="brand-mark">
-                <span className="brand-dot" />
-                LAB-2 · Semantik Portföy
-              </span>
-              <div>
-                <div aria-hidden="true" style={{ fontSize: '0.8rem', color: '#6b7280' }}>
-                  Web Tasarımı ve Programlama
-                </div>
-                <p className="sr-only">Semantik HTML5 ve erişilebilir portföy sayfası</p>
-              </div>
-            </div>
+      <button
+        onClick={toggleTheme}
+        className="fixed right-4 top-4 z-50 rounded-full bg-gray-200 p-2 text-gray-800 shadow-lg transition-transform hover:scale-110 dark:bg-gray-700 dark:text-gray-200"
+        aria-label="Tema degistir"
+      >
+        <span className="dark:hidden">&#9790;</span>
+        <span className="hidden dark:inline">&#9728;</span>
+      </button>
 
-            <nav aria-label="Ana navigasyon">
-              <ul>
-                <li>
-                  <a href="#about">Hakkımda</a>
-                </li>
-                <li>
-                  <a href="#projects">Projeler</a>
-                </li>
-                <li>
-                  <a href="#contact">İletişim</a>
-                </li>
-              </ul>
-            </nav>
-          </header>
-
-          <main id="main-content">
-            <section id="about" className="hero" aria-labelledby="about-title">
-              <header>
-                <h1 id="about-title" className="hero-title">
-                  Şerif Bayram · Frontend Geliştirici Adayı
-                </h1>
-                <p className="hero-subtitle">
-                  HTML, CSS ve JavaScript temelleri üzerine, React ve TypeScript ile modern
-                  web arayüzleri geliştirmeye odaklanan bir bilgisayar programcılığı
-                  öğrencisiyim.
-                </p>
-              </header>
-
-              <div className="hero-meta">
-                <p className="pill">
-                  <span className="pill-dot" />
-                  Öğrenci No: 225541018
-                </p>
-                <p className="pill pill-soft">LAB-2 · Semantik HTML &amp; a11y</p>
-                <p className="pill pill-soft">React · TypeScript · Vite</p>
-              </div>
-
-              <article className="about-section" aria-label="Kısa biyografi">
-                <h2>Hakkımda</h2>
-                <p>
-                  Web geliştirme alanında kendimi sürekli geliştirmeyi hedefliyorum. Temiz
-                  kod, erişilebilirlik ve kullanıcı deneyimi benim için sadece ders konusu
-                  değil, aynı zamanda mesleki hedefimin temel parçaları.
-                </p>
-                <p>
-                  Bu sayfa, LAB-2 kapsamında semantik HTML, heading hiyerarşisi ve
-                  erişilebilir form pratiklerini uygulamak için hazırlanmış kişisel bir
-                  portföy taslağıdır.
-                </p>
-              </article>
-
-              <section id="projects" aria-labelledby="projects-title">
-                <h2 id="projects-title">Öne Çıkan Çalışmalar</h2>
-                <p className="helper-text">
-                  Aşağıdaki projeler, HTML/CSS temelleri ve modern araçlarla yaptığım
-                  çalışmaları temsil eder.
-                </p>
-                <div className="project-grid" role="list">
-                  <article className="project-card" role="listitem">
-                    <h3>Web LAB-1 - Hello Project</h3>
-                    <p>
-                      Vite ile oluşturulmuş, React + TypeScript tabanlı başlangıç projesi.
-                      Geliştirme ortamı kurulumu ve temel Git iş akışı üzerine odaklanır.
-                    </p>
-                  </article>
-                  <article className="project-card" role="listitem">
-                    <h3>LAB-2 Semantik Portföy</h3>
-                    <p>
-                      Semantik HTML5 iskeleti, erişilebilir form bileşenleri ve heading
-                      hiyerarşisi ile hazırlanmış kişisel portföy sayfası.
-                    </p>
-                  </article>
-                  <article className="project-card" role="listitem">
-                    <h3>LAB-3 Responsive Tasarım</h3>
-                    <p>
-                      Mobile-first yaklaşımı, 3 breakpoint ve modern CSS layout (Flexbox &amp;
-                      Grid) kullanılarak responsive hale getirilmiş bu portföy düzeni.
-                    </p>
-                  </article>
-                </div>
-              </section>
-            </section>
-
-            <aside className="info-panel" aria-label="İletişim ve öğrenci bilgileri">
-              <section aria-labelledby="student-info-title">
-                <h2 id="student-info-title" className="info-tag">
-                  Öğrenci Bilgileri
-                </h2>
-
-                <div className="student-card">
-                  <div className="avatar" aria-hidden="true">
-                    ŞB
-                  </div>
-                  <div className="student-name">Şerif Bayram</div>
-                  <div className="student-id">Öğrenci No: 225541018</div>
-                </div>
-              </section>
-
-              <section
-                id="contact"
-                className="contact-section"
-                aria-labelledby="contact-title"
-              >
-                <div className="contact-header">
-                  <h2 id="contact-title">İletişim Formu</h2>
-                  <p>
-                    Bu form, LAB-2 kapsamında erişilebilir, semantik ve doğrulama öznitelikli
-                    bir örnek olarak hazırlanmıştır.
-                  </p>
-                </div>
-
-                <form
-                  aria-label="İletişim formu"
-                  noValidate
-                  onSubmit={(event) => event.preventDefault()}
+      <header className="sticky top-0 z-40 border-b border-gray-200 bg-white/95 backdrop-blur dark:border-gray-700 dark:bg-gray-900/95">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-3 sm:flex-row">
+          <h1 className="text-xl font-bold text-primary dark:text-blue-300">Serif Bayram</h1>
+          <nav aria-label="Ana navigasyon">
+            <ul className="flex flex-wrap gap-2">
+              <li>
+                <a
+                  href="#hakkimda"
+                  className="rounded-md px-3 py-1 text-gray-700 transition-colors hover:bg-blue-100 dark:text-gray-300 dark:hover:bg-gray-800"
                 >
-                  <div className="form-row-inline">
-                    <div className="form-row">
-                      <label className="field-label" htmlFor="fullName">
-                        Ad Soyad <span>*</span>
-                      </label>
-                      <input
-                        id="fullName"
-                        name="fullName"
-                        type="text"
-                        required
-                        minLength={3}
-                        aria-describedby="fullName-help"
-                      />
-                      <small id="fullName-help" className="field-description">
-                        En az 3 karakter giriniz.
-                      </small>
-                      <small
-                        id="fullName-error"
-                        className="field-error"
-                        role="alert"
-                        aria-live="polite"
-                      />
-                    </div>
-
-                    <div className="form-row">
-                      <label className="field-label" htmlFor="email">
-                        E-posta <span>*</span>
-                      </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        aria-describedby="email-help"
-                      />
-                      <small id="email-help" className="field-description">
-                        Geçerli bir e-posta adresi giriniz (ornek@site.com).
-                      </small>
-                      <small
-                        id="email-error"
-                        className="field-error"
-                        role="alert"
-                        aria-live="polite"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="form-row">
-                    <label className="field-label" htmlFor="subject">
-                      Konu <span>*</span>
-                    </label>
-                    <input
-                      id="subject"
-                      name="subject"
-                      type="text"
-                      required
-                      minLength={5}
-                      aria-describedby="subject-help"
-                    />
-                    <small id="subject-help" className="field-description">
-                      Mesajınızı özetleyen kısa bir başlık yazın (en az 5 karakter).
-                    </small>
-                    <small
-                      id="subject-error"
-                      className="field-error"
-                      role="alert"
-                      aria-live="polite"
-                    />
-                  </div>
-
-                  <div className="form-row">
-                    <label className="field-label" htmlFor="message">
-                      Mesajınız <span>*</span>
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      minLength={10}
-                      aria-describedby="message-help"
-                    />
-                    <small id="message-help" className="field-description">
-                      Kısa ama açıklayıcı bir mesaj yazınız (en az 10 karakter).
-                    </small>
-                    <small
-                      id="message-error"
-                      className="field-error"
-                      role="alert"
-                      aria-live="polite"
-                    />
-                  </div>
-
-                  <div className="form-footer">
-                    <button type="submit">Mesajı Gönder (Örnek)</button>
-                    <p className="form-helper">
-                      Bu form sadece LAB-2 için ön yüzde çalışan bir örnektir; gönderilen
-                      veriler herhangi bir sunucuya iletilmez.
-                    </p>
-                  </div>
-                </form>
-              </section>
-
-              <footer className="footer-note">
-                <span>Bu sayfa, LAB-2 semantik HTML ve erişilebilirlik gereksinimlerini hedefler.</span>
-                <div className="footer-badges">
-                  <span className="footer-chip">Semantik HTML5</span>
-                  <span className="footer-chip">a11y · ARIA · Tab ile gezinme</span>
-                </div>
-              </footer>
-            </aside>
-          </main>
+                  Hakkimda
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#projeler"
+                  className="rounded-md px-3 py-1 text-gray-700 transition-colors hover:bg-blue-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                >
+                  Projeler
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#iletisim"
+                  className="rounded-md px-3 py-1 text-gray-700 transition-colors hover:bg-blue-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                >
+                  Iletisim
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#uikit"
+                  className="rounded-md px-3 py-1 text-gray-700 transition-colors hover:bg-blue-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                >
+                  UI Kit
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
-      </div>
-    </>
+      </header>
+
+      <main id="main-content">
+        <section id="hakkimda" className="px-4 py-16">
+          <div className="mx-auto flex max-w-4xl flex-col items-center gap-8 md:flex-row md:items-start">
+            <figure className="h-40 w-40 shrink-0 overflow-hidden rounded-full shadow-lg">
+              <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-blue-500 to-indigo-600 text-3xl font-bold text-white">
+                SB
+              </div>
+            </figure>
+            <div>
+              <h2 className="mb-4 text-center text-3xl font-bold text-gray-900 dark:text-white md:text-left">
+                Hakkimda
+              </h2>
+              <p className="mb-4 leading-relaxed text-gray-600 dark:text-gray-400">
+                Frontend gelistirici olarak modern web teknolojileriyle kullanici dostu
+                arayuzler olusturuyorum.
+              </p>
+              <ul className="flex flex-wrap gap-2">
+                {['React', 'TypeScript', 'Tailwind', 'Vite'].map((item) => (
+                  <li key={item} className="rounded-full bg-primary px-3 py-1 text-sm text-white">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="projeler" className="bg-gray-50 px-4 py-16 dark:bg-gray-900">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 dark:text-white">
+              Projelerim
+            </h2>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <Card variant="elevated" title="LAB-1 Hello">
+                Vite ile gelistirme ortami kuruldu ve temel React uygulamasi olusturuldu.
+              </Card>
+              <Card variant="outlined" title="LAB-2 Semantik Portfoy">
+                Semantik HTML ve erisilebilirlik kurallariyla portfoy yapisi kuruldu.
+              </Card>
+              <Card
+                variant="filled"
+                title="LAB-3 Responsive"
+                footer={<Button size="sm">Detay</Button>}
+              >
+                Mobile-first, Flexbox ve Grid ile 3 breakpoint responsive duzen olusturuldu.
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        <section id="iletisim" className="px-4 py-16">
+          <div className="mx-auto max-w-lg">
+            <h2 className="mb-8 text-center text-3xl font-bold text-gray-900 dark:text-white">
+              Iletisim
+            </h2>
+            {showAlert && (
+              <div className="mb-4">
+                <Alert
+                  variant="info"
+                  title="Bilgi"
+                  dismissible
+                  onDismiss={() => setShowAlert(false)}
+                >
+                  Form ornek amaclidir, gonderim yapmaz.
+                </Alert>
+              </div>
+            )}
+            <form className="space-y-4" onSubmit={(event) => event.preventDefault()}>
+              <Input id="name" label="Ad Soyad" placeholder="Ahmet Yilmaz" required />
+              <Input
+                id="email"
+                label="E-posta"
+                type="email"
+                helpText="Ornek: ad@mail.com"
+                required
+              />
+              <div className="space-y-1">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                >
+                  Mesajiniz
+                </label>
+                <textarea
+                  id="message"
+                  rows={5}
+                  required
+                  className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
+                />
+              </div>
+              <Button variant="primary" size="lg" type="submit">
+                Gonder
+              </Button>
+            </form>
+          </div>
+        </section>
+
+        <section id="uikit" className="px-4 py-8">
+          <UIKit />
+        </section>
+      </main>
+
+      <footer className="border-t border-gray-200 bg-gray-100 px-4 py-6 text-center text-sm text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-400">
+        <p>&copy; {currentYear} Serif Bayram. Tum haklari saklidir.</p>
+      </footer>
+    </div>
   )
 }
 
